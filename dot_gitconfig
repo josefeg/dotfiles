@@ -1,0 +1,57 @@
+[init]
+    defaultBranch = master
+
+[core]
+	excludesfile = /Users/josef/.gitignore_global
+    editor = mvim -v
+    trustctime = false
+    ignoreCase = false
+    pager =
+
+[alias]
+    undo = reset --soft HEAD~1
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    stash-all = stash save --include-untracked
+    hub = "!f(){ open `git remote -v | awk '/fetch/{print $2}' | sed -Ee 's#(git@|git://)#http://#' -e 's@com:@com/@'` | head -n1; }; f"
+    travis = !echo "https://travis-ci.com/github/`git config remote.origin.url`" | sed "s/git@github.com://g" | sed "s/\\\\.git//g" | sed "s/\\$/\\\\/builds/g" | xargs open 
+
+[color]
+    ui = true
+
+[user]
+	name = Josef Galea
+	email = josefeg@gmail.com
+    signingkey = 0A4426BAAE7CADEE
+
+[commit]
+    gpgSign = true
+	template = /Users/josef/.stCommitMsg
+
+[pull]
+    rebase = true
+
+[push]
+    default = current
+
+[help]
+    autoCorrect = 1
+
+[status]
+    showUntrackedFiles = all
+
+[rebase]
+    autostash = true
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[diff]
+	external = difft
