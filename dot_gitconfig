@@ -6,7 +6,7 @@
     editor = mvim -v
     trustctime = false
     ignoreCase = false
-    pager =
+    pager = delta
 
 [alias]
     undo = reset --soft HEAD~1
@@ -53,5 +53,5 @@
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
-[diff]
-	external = difft
+[delta]
+    side-by-side = true
