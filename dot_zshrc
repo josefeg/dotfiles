@@ -26,6 +26,8 @@ bindkey "^U" backward-kill-line
 alias vi="mvim -v"
 alias vim="mvim -v"
 
+alias ssh="kitten ssh"
+
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh --cmd cd)"
 
