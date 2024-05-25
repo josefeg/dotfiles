@@ -25,7 +25,6 @@
 
 [commit]
     gpgSign = true
-	template = /Users/josef/.stCommitMsg
 
 [pull]
     rebase = true
