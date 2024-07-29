@@ -54,3 +54,7 @@
 
 [delta]
     side-by-side = true
+
+[includeIf "gitdir:~/Development/Betsson/"]
+    path = ~/.gitconfig_betsson
+
