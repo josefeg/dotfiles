@@ -2,7 +2,7 @@
     defaultBranch = master
 
 [core]
-	excludesfile = /Users/josef/.gitignore_global
+    excludesfile = ~/.gitignore_global
     editor = mvim -v
     trustctime = false
     ignoreCase = false
@@ -19,8 +19,8 @@
     ui = true
 
 [user]
-	name = Josef Galea
-	email = josefeg@gmail.com
+    name = Josef Galea
+    email = josefeg@gmail.com
     signingkey = 0A4426BAAE7CADEE
 
 [commit]
@@ -45,12 +45,12 @@
     insteadOf = https://github.com/
 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
 
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 
 [delta]
     side-by-side = true
