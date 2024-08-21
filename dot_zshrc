@@ -4,8 +4,10 @@ ZSH_THEME="robbyrussell"
 
 plugins=(
     docker
+    dotnet
     fzf-tab
     git
+    opentofu
     sdk
     zsh-autosuggestions
 )
