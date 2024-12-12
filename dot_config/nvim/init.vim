@@ -47,7 +47,7 @@ call plug#end()
 " Enable Tree-sitter
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "python", "javascript" }, 
+  ensure_installed = { "c", "c_sharp", "python", "javascript" }, 
   highlight = {
     enable = true,              -- Enable Tree-sitter highlighting
   },
