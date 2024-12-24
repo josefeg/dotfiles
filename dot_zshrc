@@ -29,6 +29,8 @@ alias vi="nvim"
 alias vim="nvim"
 
 eval "$(starship init zsh)"
+
+export _ZO_RESOLVE_SYMLINKS=1
 eval "$(zoxide init zsh --cmd cd)"
 
 export HOMEBREW_NO_ENV_HINTS=1
