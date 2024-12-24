@@ -2,3 +2,5 @@
     email = josef.galea@betssongroup.com
     signingkey = 3A98785B00D8BE4F
 
+[alias]
+    jira = !git rev-parse --abbrev-ref HEAD | sed -n 's:.*/\\([a-zA-Z]*-[0-9]*\\).*:\\1:p' | tr '[:lower:]' '[:upper:]' | sed 's:^:https\\:\\/\\/betssongroup.atlassian.net\\/browse\\/:' | xargs open

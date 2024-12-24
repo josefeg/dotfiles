@@ -12,8 +12,7 @@
     undo = reset --soft HEAD~1
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     stash-all = stash save --include-untracked
-    hub = "!f(){ open `git remote -v | awk '/fetch/{print $2}' | sed -Ee 's#(git@|git://)#http://#' -e 's@com:@com/@'` | head -n1; }; f"
-    travis = !echo "https://travis-ci.com/github/`git config remote.origin.url`" | sed "s/git@github.com://g" | sed "s/\\\\.git//g" | sed "s/\\$/\\\\/builds/g" | xargs open 
+    hub = !git config remote.origin.url | sed 's,\\.git$,\\/tree\\/'"$(git rev-parse --abbrev-ref HEAD)"',g' | xargs open
 
 [color]
     ui = true
