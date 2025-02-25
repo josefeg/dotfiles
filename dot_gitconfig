@@ -17,6 +17,12 @@
 [color]
     ui = true
 
+[tag]
+    # default sort order for tags is alphabetical. Configure it like so will
+    # treat dotted version numbers as integers so the order will make more
+    # sense
+    sort = version:refname
+
 [user]
     name = Josef Galea
     email = josefeg@gmail.com
@@ -30,12 +36,21 @@
 
 [push]
     default = current
+    autoSetupRemote = true
+    followTags = true # Automatically push any tags that exist only locally
+
+[diff]
+    algorithm = histogram
+    colorMoved = plain
 
 [help]
     autoCorrect = 1
 
 [status]
     showUntrackedFiles = all
+
+[merge]
+    conflictStyle = zdiff3 # Also shows original before the conflict
 
 [rebase]
     autostash = true

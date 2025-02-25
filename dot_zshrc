@@ -36,6 +36,7 @@ eval "$(zoxide init zsh --cmd cd)"
 export HOMEBREW_NO_ENV_HINTS=1
 export PATH="$PATH:$HOME/.dotnet/tools:$HOME/.rd/bin"
 
+source "$HOME/.cargo/env"
 source <(fzf --zsh)
 
 export NVM_DIR="$HOME/.nvm"
