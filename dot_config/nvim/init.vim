@@ -20,6 +20,7 @@ set copyindent
 " UI enhancements
 set ruler
 set number
+set relativenumber
 set showmode
 set showmatch
 set mat=1
@@ -65,3 +66,5 @@ set directory=~/.local/share/nvim/swap//
 set undodir=~/.local/share/nvim/undo//
 set undofile
 
+" Status column
+set statuscolumn=%=%{v:lnum}:%{v:lnum==line('.')?0:abs(v:lnum-line('.'))}%s\ \ \ 
