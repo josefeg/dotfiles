@@ -20,7 +20,7 @@ set copyindent
 " UI enhancements
 set ruler
 set number
-set relativenumber
+" set relativenumber
 set showmode
 set showmatch
 set mat=1
@@ -48,7 +48,7 @@ call plug#end()
 " Enable Tree-sitter
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "c_sharp", "python", "rust", "javascript" }, 
+  ensure_installed = { "c", "c_sharp", "elixir", "java", "python", "rust", "javascript" }, 
   highlight = {
     enable = true,              -- Enable Tree-sitter highlighting
   },
@@ -67,4 +67,4 @@ set undodir=~/.local/share/nvim/undo//
 set undofile
 
 " Status column
-set statuscolumn=%=%{v:lnum}:%{v:lnum==line('.')?0:abs(v:lnum-line('.'))}%s\ \ \ 
+" set statuscolumn=%=%{v:lnum}:%{v:lnum==line('.')?0:abs(v:lnum-line('.'))}%s\ \ \ 
