@@ -47,6 +47,15 @@ require("lazy").setup({
   { "HiPhish/rainbow-delimiters.nvim" },
 
   -- Telescope
-  { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
+    },
+    config = function()
+      vim.keymap.set("n", "<space>ff", require('telescope.builtin').find_files)
+    end
+  },
 })
 
