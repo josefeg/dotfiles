@@ -1,18 +1,12 @@
-" Ensure compatibility with Neovim
-set nocompatible
-
 " General settings
-set bs=indent,eol,start
-set history=100
-set nobackup
-set noswapfile
-set encoding=utf8
+set encoding=utf-8
 set termguicolors
 
-" Auto-indentation and tabs
+" Indentation
 set autoindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set smarttab
 set copyindent
@@ -20,51 +14,66 @@ set copyindent
 " UI enhancements
 set ruler
 set number
-" set relativenumber
 set showmode
 set showmatch
-set mat=1
+set matchtime=1
 set title
 set hlsearch
 set incsearch
+set signcolumn=yes
 
 " Cursor navigation
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+noremap <Up>    <Nop>
+noremap <Down>  <Nop>
+noremap <Left>  <Nop>
+noremap <Right> <Nop>
+
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-" Plugin manager setup: vim-plug
+" Persistent undo & recovery
+set undofile
+set undodir=~/.local/share/nvim/undo//
+
+set backupdir=~/.local/share/nvim/backup//
+set directory=~/.local/share/nvim/swap//
+
+" Plugins via vim-plug
 call plug#begin('~/.config/nvim/plugged')
 
 " Plugins
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax highlighting
-Plug 'p00f/nvim-ts-rainbow'                                 " Rainbow parentheses
+Plug 'HiPhish/rainbow-delimiters.nvim'                      " Rainbow parentheses
+Plug 'nvim-lua/plenary.nvim'                                " Telescope and dependency
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
 " Enable Tree-sitter
 lua << EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "c_sharp", "elixir", "java", "python", "rust", "javascript" }, 
+require('nvim-treesitter').setup {
+  ensure_installed = { 
+    -- Core
+    "c",
+    "lua",
+    "vim",
+
+    -- Programming languages
+    "c_sharp", 
+    "elixir", 
+    "java", 
+    "javascript", 
+    "python", 
+    "rust",
+    
+    -- Configuration / docs
+    "json",
+    "markdown",
+    "yaml",
+  }, 
   highlight = {
     enable = true,              -- Enable Tree-sitter highlighting
-  },
-  rainbow = {
-    enable = true,
-    extended_mode = true,       -- Highlight non-bracket delimiters
-    max_file_lines = nil,       -- No limit for file size
   },
 }
 EOF
 
-" File and undo settings
-set backupdir=~/.local/share/nvim/backup//
-set directory=~/.local/share/nvim/swap//
-set undodir=~/.local/share/nvim/undo//
-set undofile
-
-" Status column
-" set statuscolumn=%=%{v:lnum}:%{v:lnum==line('.')?0:abs(v:lnum-line('.'))}%s\ \ \ 
