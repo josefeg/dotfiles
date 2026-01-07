@@ -32,6 +32,7 @@ require("lazy").setup({
           "javascript",
           "python",
           "rust",
+          "typescript",
 
           -- Config / docs
           "json",
